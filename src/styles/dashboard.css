@@ -1,0 +1,217 @@
+/* src/styles/dashboard.css */
+.dashboard-page {
+  padding: 28px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  color: #0f172a;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* header */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+.blueprint-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.95;
+  border: 1px solid #e6eefb;
+}
+
+/* summary grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.summary-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 22px rgba(11,99,255,0.03);
+}
+.summary-title {
+  font-size: 13px;
+  color: #6b7280;
+}
+.summary-value {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* delta */
+.summary-delta {
+  font-weight: 700;
+}
+.summary-delta.pos { color: #16a34a; }
+.summary-delta.neg { color: #ef4444; }
+
+/* charts row */
+.charts-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.chart-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 22px rgba(2,6,23,0.03);
+}
+.chart-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* transactions */
+.transactions-section h2 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+.table-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 22px rgba(2,6,23,0.03);
+}
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.transactions-table th,
+.transactions-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+.transactions-table thead th {
+  color: #475569;
+  font-weight: 600;
+  font-size: 13px;
+  background: #fbfdff;
+}
+.status-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.status-badge.paid { background: #ecfdf5; color: #16a34a; }
+.status-badge.pending { background: #fffbeb; color: #d97706; }
+.status-badge.cancelled { background: #fff1f2; color: #ef4444; }
+
+.empty {
+  padding: 20px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+/* User Menu (Top Right) */
+.user-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #4f46e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.user-avatar:hover {
+  background: #4338ca;
+}
+
+/* Dropdown Box */
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 52px;
+  width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  animation: fadeIn 0.12s ease-out;
+  padding: 12px 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border: 1px solid #eef1f6;
+  z-index: 100;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 8px;
+}
+
+.dropdown-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dropdown-email {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Menu Items */
+.dropdown-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #334155;
+  transition: 0.15s;
+}
+
+.dropdown-item:hover {
+  background: #f8fafc;
+}
+
+/* Logout item */
+.logout {
+  color: #e63946;
+  font-weight: 600;
+}
+
+.logout:hover {
+  background: #fff1f2;
+}
+
+
+/* responsive */
+@media (max-width: 980px) {
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .charts-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .summary-grid { grid-template-columns: 1fr; }
+}
