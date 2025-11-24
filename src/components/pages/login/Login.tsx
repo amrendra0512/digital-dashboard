@@ -26,7 +26,7 @@ const Login = () => {
     <>
       <div className="login-wrapper">
         <div className="login-card">
-          <h2>Please sign in</h2>
+          <h2>Login</h2>
 
           {success ? (
             <div className="success-text">{success}</div>
@@ -59,14 +59,14 @@ const Login = () => {
             </div>
 
             <button className="login-btn" disabled={loading}>
-              {loading ? "Signing in..." : "Sign in"}
+              {loading ? "Logging in..." : "Login"}
             </button>
           </form>
           <GoogleSignIn />
           <div className="bottom-text">
             Don’t have an account?{" "}
             <span className="signup-now" onClick={() => navigate("/signup")}>
-              Sign up now
+              Register now
             </span>
           </div>
         </div>

@@ -29,7 +29,7 @@ const Signup = () => {
       {/* 🔹 TOP-RIGHT SIGN-IN BUTTON */}
 
       <div className="login-card">
-        <h2>Create account</h2>
+        <h2>Register</h2>
         {error ? (
           <div className="error-text">{error}</div>
         ) : (
@@ -74,7 +74,7 @@ const Signup = () => {
           </div>
 
           <button className="login-btn" disabled={loading}>
-            {loading ? "Creating..." : "Sign up"}
+            {loading ? "Creating..." : "Create Account"}
           </button>
         </form>
         <GoogleSignIn />
