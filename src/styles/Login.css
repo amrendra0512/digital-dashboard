@@ -66,8 +66,29 @@ body {
   cursor: pointer;
 }
 
+.login-btn:disabled {
+  background: #8bbcff;
+  cursor: not-allowed;
+}
+
 .login-btn:hover {
   background: #0854d6;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .error-text {

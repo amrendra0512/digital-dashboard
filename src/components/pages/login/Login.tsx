@@ -19,6 +19,10 @@ const Login = () => {
   }, [token, navigate]);
 
   const onSubmit = (values: any) => {
+   const {email, password} = values;
+      if (!email || !password) {
+      return;
+    }
     dispatch(loginRequest(values)); // Saga will handle it
   };
 
@@ -58,8 +62,8 @@ const Login = () => {
               <label>Remember me</label>
             </div>
 
-            <button className="login-btn" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
+            <button type="submit" className="login-btn" disabled={loading}>
+              {loading ? <div className="spinner"></div> : "Login"}
             </button>
           </form>
           <GoogleSignIn />
