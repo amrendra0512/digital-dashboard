@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest, delay } from "redux-saga/effects";
 import { loginApi, signupApi } from "../../../api/authService";
 import {
   loginRequest,
@@ -12,6 +12,7 @@ import {
 
 function* handleSignup(action: any): Generator<any, void, any> {
   try {
+    yield delay(500);
     const res = yield call(signupApi, action.payload);
     yield put(signupSuccess(res));
   } catch (error: any) {
@@ -23,6 +24,7 @@ function* handleSignup(action: any): Generator<any, void, any> {
 
 function* handleLogin(action: any): Generator<any, void, any> {
   try {
+    yield delay(500);
     const res = yield call(loginApi, action.payload);
     if (action.payload.remember) {
       localStorage.setItem("token", res.token);

@@ -20,9 +20,8 @@ const Login = () => {
 
   const onSubmit = (values: any) => {
    const {email, password} = values;
-      if (!email || !password) {
-      return;
-    }
+      if (!email || !password) return;
+    
     dispatch(loginRequest(values)); // Saga will handle it
   };
 

@@ -74,7 +74,7 @@ const Signup = () => {
           </div>
 
           <button className="login-btn" disabled={loading}>
-            {loading ? "Creating..." : "Create Account"}
+            {loading ? <div className="spinner"></div> : "Create Account"}
           </button>
         </form>
         <GoogleSignIn />
