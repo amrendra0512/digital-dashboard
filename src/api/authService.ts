@@ -1,8 +1,9 @@
 import axios from "axios";
+import { LOGIN_API, SIGNUP_API } from "./commonApi";
 
 export const loginApi = async (payload: { email: string; password: string }) => {
     try {
-        const res = await axios.post("http://localhost:5000/auth/v1/login", payload, {
+        const res = await axios.post(LOGIN_API, payload, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -15,7 +16,7 @@ export const loginApi = async (payload: { email: string; password: string }) => 
 
 export const signupApi = async (payload: { email: string; password: string; name: string; mobile: Number }) => {
     try {
-        const res = await axios.post("http://localhost:5000/auth/v1/signup", payload, {
+        const res = await axios.post(SIGNUP_API, payload, {
             headers: {
                 "Content-Type": "application/json"
             }
