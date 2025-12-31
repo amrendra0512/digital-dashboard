@@ -5,6 +5,7 @@ import type { AuthState } from "../../interfaces/interfaceTypes";
 const initialState: AuthState = {
     loading: false,
     success: false,
+    message: "",
     error: null,
     token: localStorage.getItem("token") || null,
     user: {},
@@ -19,11 +20,11 @@ const authSlice = createSlice({
             state.error = null;
         },
         loginSuccess: (state, action: any) => {
-        
+
             state.loading = false;
-            state.token = action.payload.accessToken;
-            state.success = action.payload.message;
-            state.user = action.payload.user;
+            state.token = action.payload?.data?.token;
+            state.success = action.payload?.success;
+            state.user = action.payload?.data?.user;
         },
         loginFailure: (state, action: any) => {
             state.loading = false;
@@ -41,7 +42,8 @@ const authSlice = createSlice({
         },
         signupSuccess: (state, action) => {
             state.loading = false;
-            state.success = action.payload.message;
+            state.success = action.payload?.success;
+            state.message = action.payload?.message;
         },
         signupFailure: (state, action) => {
             state.loading = false;

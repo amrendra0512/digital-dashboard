@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { signupRequest } from "../../features/auth/authSlice";
@@ -9,16 +9,22 @@ import GoogleSignIn from "./GoogleSignIn";
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, success } = useSelector((s) => s?.auth);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const { loading, error, success, message } = useSelector((s) => s?.auth);
   const { register, handleSubmit } = useForm();
 
-  useEffect(() => {
-    if (success) {
-      setTimeout(() => {
-        navigate("/login");
+useEffect(() => {
+  if (success) {
+    setShowSuccess(true);
+
+    const timer = setTimeout(() => {
+      setShowSuccess(false);  
+      navigate("/login");
       }, 1500); // 1.5 sec delay
-    }
-  }, [success]);
+
+    return () => clearTimeout(timer);
+  }
+}, [success, navigate]);
 
   const onSubmit = (values: any) => {
     dispatch(signupRequest(values));
@@ -32,9 +38,9 @@ const Signup = () => {
         <h2>Register</h2>
         {error ? (
           <div className="error-text">{error}</div>
-        ) : (
-          <div className="success-text">{success}</div>
-        )}
+        ) : showSuccess ? (
+          <div className="success-text">{message}</div>
+        ) : null}
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
@@ -64,7 +70,7 @@ const Signup = () => {
             />
           </div>
 
-           <div className="input-group">
+          <div className="input-group">
             <input
               {...register("mobile")}
               placeholder="Mobile number"

@@ -11,4 +11,5 @@ export interface AuthState {
   token: string | null;
   user: any | null;
   success: boolean;
+  message: string;
 }
