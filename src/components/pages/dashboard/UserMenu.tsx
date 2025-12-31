@@ -7,7 +7,6 @@ const UserMenu = () => {
   const dispatch = useDispatch();
     const navigate = useNavigate();
   const user = useSelector((s) => s.auth?.user);
-  console.log("user", user);
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
 
