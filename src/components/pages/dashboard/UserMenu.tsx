@@ -39,7 +39,7 @@ const UserMenu = () => {
         <div className="user-dropdown">
           <div className="dropdown-header">
             <div className="dropdown-name">{user?.name}</div>
-            {/* <div className="dropdown-email">{user?.email}</div> */}
+            <div className="dropdown-email">{user?.email}</div>
           </div>
 
           <div className="dropdown-item">Profile</div>
